@@ -1,151 +1,230 @@
 /* ============================================================
    VISAGE STUDIO — main.js
+   Interacciones premium, navegación dinámica y reservas por WhatsApp
    ============================================================ */
 
 /* ── LOADER ─────────────────────────────────────────────────── */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 2000);
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    document.getElementById("loader")?.classList.add("hidden");
+  }, 1800);
 });
 
-/* ── CUSTOM CURSOR ───────────────────────────────────────────── */
-const cursor    = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+/* ── NAVBAR / ACTIVE LINKS ─────────────────────────────────── */
+const navbar = document.getElementById("navbar");
+const navLinks = document.querySelectorAll(".nav-links a");
+const sections = [...document.querySelectorAll("section[id]")];
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top  = mouseY + 'px';
-});
+const updateNavbar = () => {
+  navbar?.classList.toggle("scrolled", window.scrollY > 40);
 
-(function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
-  requestAnimationFrame(animateRing);
-})();
-
-document.querySelectorAll('a, button, .service-card, .gallery-item').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add('hover');
-    cursorRing.classList.add('hover');
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-    cursorRing.classList.remove('hover');
-  });
-});
-
-/* ── NAVBAR SCROLL ───────────────────────────────────────────── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-/* ── ACTIVE NAV LINK ─────────────────────────────────────────── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 220) current = s.id;
-  });
-  navLinks.forEach(link => {
-    const isActive = link.getAttribute('href') === '#' + current;
-    link.style.color = isActive ? 'var(--dark)' : '';
-  });
-}, { passive: true });
-
-/* ── HAMBURGER / MOBILE MENU ─────────────────────────────────── */
-const hamburger  = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
-
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-/* ── SCROLL REVEAL ───────────────────────────────────────────── */
-const reveals = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  let currentId = "";
+  sections.forEach((section) => {
+    if (window.scrollY >= section.offsetTop - 160) {
+      currentId = section.id;
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-reveals.forEach(el => revealObserver.observe(el));
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentId}`;
+    link.classList.toggle("active", isActive);
+  });
+};
 
-/* ── HERO PARALLAX ───────────────────────────────────────────── */
-const heroBg = document.querySelector('.hero-bg');
-window.addEventListener('scroll', () => {
+updateNavbar();
+window.addEventListener("scroll", updateNavbar, { passive: true });
+
+/* ── MOBILE MENU ───────────────────────────────────────────── */
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+const closeMobileMenu = () => {
+  hamburger?.classList.remove("active");
+  hamburger?.setAttribute("aria-expanded", "false");
+  mobileMenu?.classList.remove("open");
+  document.body.style.overflow = "";
+};
+
+hamburger?.addEventListener("click", () => {
+  const isOpen = hamburger.classList.toggle("active");
+  hamburger.setAttribute("aria-expanded", String(isOpen));
+  mobileMenu?.classList.toggle("open", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
+
+document.querySelectorAll(".mobile-menu a").forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+mobileMenu?.addEventListener("click", (event) => {
+  if (event.target === mobileMenu) {
+    closeMobileMenu();
+  }
+});
+
+/* ── SCROLL REVEAL ─────────────────────────────────────────── */
+const reveals = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.14,
+  rootMargin: "0px 0px -40px 0px",
+});
+
+reveals.forEach((element) => revealObserver.observe(element));
+
+/* ── HERO PARALLAX ─────────────────────────────────────────── */
+const heroBg = document.querySelector(".hero-bg");
+window.addEventListener("scroll", () => {
   if (!heroBg) return;
-  heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  const offset = Math.min(window.scrollY * 0.22, 120);
+  heroBg.style.transform = `translate3d(0, ${offset}px, 0) scale(1.02)`;
 }, { passive: true });
 
-/* ── LIGHTBOX ────────────────────────────────────────────────── */
-const lightbox        = document.getElementById('lightbox');
-const lightboxContent = document.getElementById('lightboxContent');
-const lightboxClose   = document.getElementById('lightboxClose');
+/* ── HERO VIDEO LAZY LOAD ──────────────────────────────────── */
+const heroVideo = document.getElementById("heroVideo");
 
-document.querySelectorAll('.gallery-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const img   = item.querySelector('img');
-    const label = item.dataset.label || 'Galería — Visage Studio';
+if (heroVideo) {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isSmallScreen = window.matchMedia("(max-width: 640px)").matches;
+  const saveData = navigator.connection?.saveData;
 
-    const hasRealImage = img && img.complete && img.naturalWidth > 0;
+  const shouldSkipVideo = prefersReducedMotion || saveData || isSmallScreen;
+
+  const loadHeroVideo = () => {
+    if (heroVideo.dataset.loaded === "true" || shouldSkipVideo) return;
+
+    const src = heroVideo.dataset.src;
+    if (!src) return;
+
+    const source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    heroVideo.appendChild(source);
+    heroVideo.load();
+    heroVideo.dataset.loaded = "true";
+
+    heroVideo.play().catch(() => {});
+  };
+
+  if (!shouldSkipVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadHeroVideo();
+          videoObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    videoObserver.observe(heroVideo);
+  }
+}
+
+/* ── LIGHTBOX ──────────────────────────────────────────────── */
+const lightbox = document.getElementById("lightbox");
+const lightboxContent = document.getElementById("lightboxContent");
+const lightboxClose = document.getElementById("lightboxClose");
+
+const closeLightbox = () => {
+  lightbox?.classList.remove("open");
+  document.body.style.overflow = "";
+};
+
+document.querySelectorAll(".gallery-item").forEach((item) => {
+  item.addEventListener("click", () => {
+    const image = item.querySelector("img");
+    const label = item.dataset.label || "Galería";
+    const hasRealImage = image && image.complete && image.naturalWidth > 0;
+
+    if (!lightboxContent || !lightbox) return;
 
     lightboxContent.innerHTML = hasRealImage
-      ? `<img src="${img.src}" alt="${label}" />`
+      ? `<img src="${image.src}" alt="${label}" />`
       : `<div class="lightbox-bg-preview">${label}</div>`;
 
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
   });
 });
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+lightboxClose?.addEventListener("click", closeLightbox);
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
 
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-}
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeLightbox();
+});
 
-/* ── SMOOTH ANCHOR SCROLL ────────────────────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const target = document.querySelector(anchor.getAttribute('href'));
+/* ── SMOOTH ANCHORS ────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (event) => {
+    const target = document.querySelector(anchor.getAttribute("href"));
     if (!target) return;
-    e.preventDefault();
-    const offset = navbar.offsetHeight + 20;
-    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+
+    event.preventDefault();
+    const navOffset = navbar ? navbar.offsetHeight + 34 : 100;
+    window.scrollTo({
+      top: target.offsetTop - navOffset,
+      behavior: "smooth",
+    });
   });
 });
 
-/* ── MARQUEE PAUSE ON HOVER ──────────────────────────────────── */
-const marqueeTrack = document.querySelector('.marquee-track');
+/* ── MARQUEE PAUSE ─────────────────────────────────────────── */
+const marqueeTrack = document.querySelector(".marquee-track");
 if (marqueeTrack) {
-  marqueeTrack.addEventListener('mouseenter', () => {
-    marqueeTrack.style.animationPlayState = 'paused';
+  marqueeTrack.addEventListener("mouseenter", () => {
+    marqueeTrack.style.animationPlayState = "paused";
   });
-  marqueeTrack.addEventListener('mouseleave', () => {
-    marqueeTrack.style.animationPlayState = 'running';
+  marqueeTrack.addEventListener("mouseleave", () => {
+    marqueeTrack.style.animationPlayState = "running";
   });
 }
+
+/* ── BEFORE / AFTER SLIDER ─────────────────────────────────── */
+const beforeAfterRange = document.getElementById("beforeAfterRange");
+const beforeLayer = document.getElementById("beforeLayer");
+const beforeAfterDivider = document.getElementById("beforeAfterDivider");
+
+const updateBeforeAfter = (value) => {
+  if (!beforeLayer || !beforeAfterDivider) return;
+  beforeLayer.style.width = `${value}%`;
+  beforeAfterDivider.style.left = `${value}%`;
+};
+
+if (beforeAfterRange) {
+  updateBeforeAfter(beforeAfterRange.value);
+  beforeAfterRange.addEventListener("input", (event) => {
+    updateBeforeAfter(event.target.value);
+  });
+}
+
+/* ── BOOKING FORM TO WHATSAPP ──────────────────────────────── */
+const bookingForm = document.getElementById("bookingForm");
+
+bookingForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("bookingName")?.value.trim();
+  const service = document.getElementById("bookingService")?.value.trim();
+  const time = document.getElementById("bookingTime")?.value.trim();
+
+  if (!name || !service || !time) return;
+
+  const message = [
+    "Hola, quiero reservar una cita en Visage Studio.",
+    `Nombre: ${name}`,
+    `Servicio: ${service}`,
+    `Hora preferida: ${time}`,
+  ].join("\n");
+
+  const url = `https://wa.me/18095835757?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener");
+});
