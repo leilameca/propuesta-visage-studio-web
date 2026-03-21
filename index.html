@@ -59,6 +59,8 @@
         muted
         loop
         playsinline
+        webkit-playsinline="true"
+        disablepictureinpicture
         preload="none"
         poster="IMG_STUDIO_INTERIOR.jpg"
         data-src="IMG_HERO_SALON.webm"
@@ -300,9 +302,9 @@
 
     <div class="before-after-widget reveal reveal-delay-2">
       <div class="before-after-frame" id="beforeAfterFrame">
-        <img src="despues.png" alt="Resultado después del servicio" class="after-image" loading="lazy" decoding="async" />
+        <img src="despues.png" alt="Resultado después del servicio" class="after-image" loading="eager" fetchpriority="high" decoding="async" />
         <div class="before-layer" id="beforeLayer">
-          <img src="antes.png" alt="Antes del servicio" class="before-image" loading="lazy" decoding="async" />
+          <img src="antes.png" alt="Antes del servicio" class="before-image" loading="eager" fetchpriority="high" decoding="async" />
         </div>
         <div class="before-after-divider" id="beforeAfterDivider">
           <span class="before-after-handle"><i class="fas fa-arrows-left-right" aria-hidden="true"></i></span>

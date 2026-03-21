@@ -407,6 +407,16 @@ footer {
   transform-origin: center;
 }
 
+.hero-bg.poster-only {
+  background-image: url("IMG_STUDIO_INTERIOR.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg.poster-only .hero-video {
+  display: none;
+}
+
 .hero-video {
   width: 100%;
   height: 100%;

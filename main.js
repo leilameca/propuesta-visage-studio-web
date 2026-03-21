@@ -93,8 +93,12 @@ if (heroVideo) {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isSmallScreen = window.matchMedia("(max-width: 640px)").matches;
   const saveData = navigator.connection?.saveData;
+  const supportsWebm = heroVideo.canPlayType("video/webm") !== "";
+  const shouldSkipVideo = prefersReducedMotion || saveData || isSmallScreen || !supportsWebm;
 
-  const shouldSkipVideo = prefersReducedMotion || saveData || isSmallScreen;
+  if (shouldSkipVideo) {
+    heroBg?.classList.add("poster-only");
+  }
 
   const loadHeroVideo = () => {
     if (heroVideo.dataset.loaded === "true" || shouldSkipVideo) return;
