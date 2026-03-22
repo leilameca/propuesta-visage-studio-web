@@ -14,13 +14,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <div id="loader">
-    <div class="loader-logo">V<span>S</span></div>
-    <div class="loader-line"></div>
-    <p class="loader-text">Visage Studio — Santiago</p>
-  </div>
-
   <nav id="navbar">
     <a href="#" class="nav-logo">V<span>isage</span> Studio</a>
 
@@ -41,13 +34,21 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#servicios">Servicios</a>
-    <a href="#galeria">Galería</a>
-    <a href="#antes-despues">Resultados</a>
-    <a href="#por-que-elegirnos">Por qué elegirnos</a>
-    <a href="#testimonios">Clientes</a>
-    <a href="#reservas">Reservas</a>
-    <a href="#contacto">Contacto</a>
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-top">
+        <span class="mobile-menu-kicker">Visage Studio</span>
+        <a href="#reservas" class="mobile-menu-cta">Agenda tu experiencia</a>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#servicios"><span>Servicios</span><small>Rituales de belleza premium</small></a>
+        <a href="#galeria"><span>Galería</span><small>Resultados con estética editorial</small></a>
+        <a href="#antes-despues"><span>Resultados</span><small>Transformaciones visibles</small></a>
+        <a href="#por-que-elegirnos"><span>Por qué elegirnos</span><small>Lujo, técnica y confianza</small></a>
+        <a href="#testimonios"><span>Clientes</span><small>Prueba social real</small></a>
+        <a href="#contacto"><span>Contacto</span><small>Ubicación y reservas</small></a>
+      </div>
+      <div class="mobile-menu-note">Cupos limitados por día para mantener una atención verdaderamente personalizada.</div>
+    </div>
   </div>
 
   <section id="hero">
@@ -62,8 +63,8 @@
         webkit-playsinline="true"
         disablepictureinpicture
         preload="none"
-        poster="IMG_STUDIO_INTERIOR.jpg"
-        data-src="IMG_HERO_SALON.webm"
+        poster="IMG_GALERIA_4.jpg"
+        data-src="IMG_HERO_SALON.mp4"
       ></video>
     </div>
     <div class="hero-gradient"></div>
@@ -74,57 +75,38 @@
         <div class="hero-topline">
           <div class="hero-tag">Santiago, República Dominicana</div>
           <div class="hero-score reveal reveal-delay-1">
-            <span>+5,000 clientas felices</span>
+            <span>+5,000 experiencias memorables</span>
             <span class="hero-score-divider"></span>
-            <span>Experiencia premium</span>
+            <span>Atención por cita</span>
           </div>
         </div>
 
         <h1 class="hero-title">
-          El salón donde tu imagen
-          <span>se siente exclusiva</span>
-          <em>sin decir una palabra</em>
+          Más que belleza,
+          <span>una experiencia que transforma tu esencia</span>
+          <em>con detalle, elegancia y presencia</em>
         </h1>
 
         <p class="hero-subtitle">
-          Cabello, uñas, maquillaje y pestañas con una ejecución precisa, una atmósfera cuidada y resultados que elevan cómo te ves y cómo te sientes.
+          En Visage Studio cada cita está diseñada para hacerte sentir segura, impecable y auténticamente especial, con resultados que elevan tu imagen desde el primer vistazo.
         </p>
 
         <div class="hero-actions">
           <a href="#reservas" class="btn-primary">
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-            Reservar mi cita
+            Agenda tu experiencia
           </a>
-          <a href="#galeria" class="btn-secondary">Ver resultados reales</a>
+          <a href="#galeria" class="btn-secondary">Descubrir resultados reales</a>
         </div>
 
         <div class="hero-highlights reveal reveal-delay-3">
           <div class="hero-highlight-card">
-            <span class="hero-highlight-label">Especialidades</span>
-            <strong>Cabello, uñas, makeup y pestañas</strong>
+            <span class="hero-highlight-label">Experiencia Signature</span>
+            <strong>Rituales de cabello, uñas, makeup y pestañas creados para reflejar tu estilo con sofisticación.</strong>
           </div>
           <div class="hero-highlight-card">
-            <span class="hero-highlight-label">Promesa</span>
-            <strong>Atención precisa, ambiente elegante y acabado impecable</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-side-panel reveal reveal-delay-2">
-        <div class="hero-side-card hero-side-card-primary">
-          <span class="hero-side-label">Luxury Beauty House</span>
-          <strong>Una experiencia diseñada para que te veas exclusiva y te sientas segura.</strong>
-        </div>
-        <div class="hero-side-card hero-side-card-secondary">
-          <div class="hero-side-stat">
-            <span class="hero-side-number">4</span>
-            <span class="hero-side-text">Áreas de belleza en un mismo espacio premium</span>
-          </div>
-          <div class="hero-side-divider"></div>
-          <div class="hero-side-list">
-            <span>Atención por cita</span>
-            <span>Acabado pulido</span>
-            <span>Resultados fotogénicos</span>
+            <span class="hero-highlight-label">Nuestra promesa</span>
+            <strong>Ambiente sereno, asesoría honesta y un acabado pulido que se siente exclusivo de principio a fin.</strong>
           </div>
         </div>
       </div>
@@ -151,17 +133,39 @@
     </div>
   </div>
 
+  <section class="editorial-band">
+    <div class="editorial-band-copy reveal">
+      <div class="section-label">Luxury Editorial</div>
+      <h2 class="section-title">
+        Belleza con presencia,
+        <em>textura y actitud</em>
+      </h2>
+      <p>Inspirado en campañas editoriales: luz suave, detalles pulidos y una estética que convierte cada servicio en una imagen memorable.</p>
+      <a href="#reservas" class="btn-outline">Agenda tu cita</a>
+    </div>
+
+    <div class="editorial-band-visual reveal reveal-delay-2">
+      <figure class="editorial-band-main">
+        <img src="IMG_GALERIA_4.jpg" alt="Maquillaje editorial de Visage Studio" loading="lazy" decoding="async" />
+        <figcaption>Soft glam con acabado de portada</figcaption>
+      </figure>
+      <figure class="editorial-band-side">
+        <img src="IMG_GALERIA_3.jpg" alt="Uñas elegantes de Visage Studio" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
   <section id="servicios">
     <div class="services-header">
       <div class="services-header-left">
         <div class="section-label reveal">Nuestros Servicios</div>
         <h2 class="section-title reveal reveal-delay-1">
-          Resultados visibles,
-          <em>experiencia memorable</em>
+          Cada servicio es una
+          <em>experiencia de transformación</em>
         </h2>
       </div>
       <p class="reveal reveal-delay-2">
-        Cada cita está pensada para que salgas viéndote mejor, sintiéndote segura y lista para destacar.
+        No se trata solo de verte bien. Se trata de salir con más presencia, más confianza y la sensación de que cada detalle fue pensado para ti.
       </p>
     </div>
 
@@ -176,7 +180,7 @@
         <div class="service-card-content">
           <div class="service-card-number">01</div>
           <div class="service-card-name">Cabello</div>
-          <div class="service-card-desc">Cortes, color, hidratación, alisados y peinados con diagnóstico personalizado y acabado editorial.</div>
+          <div class="service-card-desc">Más que un cambio de look: una asesoría precisa para devolverle movimiento, luz y elegancia a tu imagen.</div>
         </div>
       </article>
 
@@ -190,7 +194,7 @@
         <div class="service-card-content">
           <div class="service-card-number">02</div>
           <div class="service-card-name">Uñas</div>
-          <div class="service-card-desc">Manicure, pedicure, gel, acrílico y diseños elegantes que elevan cualquier look sin perder sofisticación.</div>
+          <div class="service-card-desc">No es solo manicure. Es ese detalle impecable que hace que todo tu estilo se vea más pulido y sofisticado.</div>
         </div>
       </article>
 
@@ -204,7 +208,7 @@
         <div class="service-card-content">
           <div class="service-card-number">03</div>
           <div class="service-card-name">Maquillaje</div>
-          <div class="service-card-desc">Soft glam, social, novias y maquillaje de larga duración adaptado a luz, ocasión y rasgos faciales.</div>
+          <div class="service-card-desc">Creamos un maquillaje que no disfraza tu esencia: la eleva con luz, equilibrio y una presencia inolvidable.</div>
         </div>
       </article>
 
@@ -218,15 +222,20 @@
         <div class="service-card-content">
           <div class="service-card-number">04</div>
           <div class="service-card-name">Pestañas</div>
-          <div class="service-card-desc">Extensiones, lifting y diseño de mirada con acabados limpios, cómodos y de alto impacto visual.</div>
+          <div class="service-card-desc">Diseñamos tu mirada para que se vea más expresiva, elegante y naturalmente impactante sin perder comodidad.</div>
         </div>
       </article>
     </div>
 
     <div class="service-footnote reveal reveal-delay-3">
-      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Diagnóstico personalizado en cada cita</div>
-      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Técnicas actualizadas y marcas seleccionadas</div>
-      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Atención puntual orientada a resultados</div>
+      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Diagnóstico personalizado para recomendar lo que realmente te favorece</div>
+      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Técnicas y productos elegidos por desempeño, acabado y duración</div>
+      <div class="service-footnote-item"><i class="fas fa-circle-check" aria-hidden="true"></i> Atención puntual, serena y enfocada en resultados que sí se notan</div>
+    </div>
+
+    <div class="section-inline-cta reveal reveal-delay-3">
+      <p>Cupos limitados por día para cuidar cada detalle de tu experiencia.</p>
+      <a href="#reservas" class="btn-outline">Reserva ahora</a>
     </div>
   </section>
 
@@ -235,8 +244,8 @@
       <div>
         <div class="section-label reveal">Galería</div>
         <h2 class="section-title reveal reveal-delay-1">
-          Nuestro trabajo
-          <em>habla por nosotros</em>
+          Resultados que
+          <em>se sienten aspiracionales</em>
         </h2>
       </div>
       <a href="https://instagram.com/visagestudiord" class="gallery-link reveal" target="_blank" rel="noopener">
@@ -278,6 +287,37 @@
     </div>
   </section>
 
+  <section class="editorial-story">
+    <div class="editorial-story-visual reveal">
+      <div class="editorial-story-frame editorial-story-frame-large">
+        <img src="IMG_GALERIA_1.jpg" alt="Cabello con acabado editorial" loading="lazy" decoding="async" />
+      </div>
+      <div class="editorial-story-stack">
+        <div class="editorial-story-frame editorial-story-frame-small">
+          <img src="IMG_GALERIA_6.jpg" alt="Corte elegante de Visage Studio" loading="lazy" decoding="async" />
+        </div>
+        <div class="editorial-story-note">
+          <span class="editorial-story-kicker">Lookbook Visage</span>
+          <p>Cabello, color y styling pensados para verse impecables de cerca, en movimiento y en cámara.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="editorial-story-copy reveal reveal-delay-2">
+      <div class="section-label">Visión Creativa</div>
+      <h2 class="section-title">
+        Una experiencia que se construye
+        <em>como una portada</em>
+      </h2>
+      <p>Cada textura, brillo, forma y acabado se diseña para crear una versión más segura, refinada y magnética de ti misma.</p>
+      <div class="editorial-story-points">
+        <div><i class="fas fa-camera" aria-hidden="true"></i> Imágenes con look revista usando resultados reales</div>
+        <div><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Detalles visuales que elevan la percepción de marca</div>
+        <div><i class="fas fa-heart" aria-hidden="true"></i> Una estética pensada para que la clienta quiera estar aquí</div>
+      </div>
+    </div>
+  </section>
+
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
     <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar"><i class="fas fa-xmark" aria-hidden="true"></i></button>
     <div class="lightbox-content" id="lightboxContent"></div>
@@ -287,16 +327,16 @@
     <div class="before-after-copy">
       <div class="section-label reveal">Antes y Después</div>
       <h2 class="section-title reveal reveal-delay-1">
-        La diferencia está en
-        <em>cómo te ves al salir</em>
+        La transformación se nota en
+        <em>cómo te miras después</em>
       </h2>
       <p class="reveal reveal-delay-2">
-        Un buen servicio no solo cambia el look, cambia la seguridad con la que te mueves. Desliza y compara el resultado.
+        Un servicio premium no termina cuando acaba la técnica. Se confirma en esa nueva seguridad con la que te ves, te sientes y sales al mundo.
       </p>
       <div class="before-after-points reveal reveal-delay-3">
-        <div><i class="fas fa-sparkles" aria-hidden="true"></i> Acabados más pulidos y fotogénicos</div>
-        <div><i class="fas fa-user-check" aria-hidden="true"></i> Diseño alineado a tu estilo y facciones</div>
-        <div><i class="fas fa-clock" aria-hidden="true"></i> Resultado pensado para durar y mantenerse bonito</div>
+        <div><i class="fas fa-sparkles" aria-hidden="true"></i> Acabados más pulidos, luminosos y listos para cámara</div>
+        <div><i class="fas fa-user-check" aria-hidden="true"></i> Diseño alineado con tu estilo, facciones y estilo de vida</div>
+        <div><i class="fas fa-clock" aria-hidden="true"></i> Resultado pensado para verse hermoso hoy y mantenerse impecable</div>
       </div>
     </div>
 
@@ -334,6 +374,7 @@
       <div class="hours-days">Domingo</div>
       <div class="hours-time closed">Cerrado</div>
     </div>
+    <div class="hours-badge">Agenda con anticipación para horarios más codiciados</div>
   </div>
 
   <section id="por-que-elegirnos">
@@ -341,25 +382,25 @@
       <div class="why-header-copy">
         <div class="section-label reveal">Por Qué Elegirnos</div>
         <h2 class="section-title light reveal reveal-delay-1">
-          Un salón premium no solo se ve bien,
-          <em>se siente distinto</em>
+          Lo exclusivo no está solo en el resultado,
+          <em>está en cómo lo vives</em>
         </h2>
         <p class="reveal reveal-delay-2">
-          Diseñamos cada detalle para que la experiencia tenga el mismo nivel que el resultado final.
+          Diseñamos cada detalle para que tu visita se sienta íntima, elegante y perfectamente cuidada desde el primer minuto.
         </p>
       </div>
 
       <div class="why-featured reveal reveal-delay-2">
         <div class="why-featured-top">
           <span class="why-featured-chip">Experiencia Visage</span>
-          <span class="why-featured-rating">5.0 percepción premium</span>
+          <span class="why-featured-rating">Beauty house de lujo</span>
         </div>
-        <h3>Todo se siente más cuidado: la atención, el ambiente, el detalle y el resultado.</h3>
-        <p>Ese equilibrio es lo que convierte una visita normal al salón en una cita que quieres repetir.</p>
+        <h3>Todo se siente más cuidado: la atmósfera, la asesoría, el detalle y la forma en que sales de aquí.</h3>
+        <p>Eso es lo que transforma una cita común en un ritual al que quieres volver cada vez que necesitas sentirte impecable.</p>
         <div class="why-featured-tags">
           <span>Luxury feel</span>
-          <span>High trust</span>
-          <span>Modern beauty</span>
+          <span>Confianza real</span>
+          <span>Beauty editorial</span>
         </div>
       </div>
     </div>
@@ -368,37 +409,37 @@
       <article class="why-card reveal">
         <div class="why-icon"><i class="fas fa-medal" aria-hidden="true"></i></div>
         <h3>Técnica con criterio</h3>
-        <p>No improvisamos. Evaluamos tu tipo de cabello, rasgos y objetivo antes de empezar.</p>
+        <p>No improvisamos tu imagen. Observamos, entendemos y diseñamos cada servicio según lo que realmente te favorece.</p>
       </article>
       <article class="why-card reveal reveal-delay-1">
         <div class="why-icon"><i class="fas fa-gem" aria-hidden="true"></i></div>
         <h3>Experiencia premium real</h3>
-        <p>Desde la recepción hasta el acabado, todo está pensado para transmitir cuidado, orden y lujo.</p>
+        <p>Desde la bienvenida hasta el acabado final, todo busca transmitir calma, belleza y lujo bien entendido.</p>
       </article>
       <article class="why-card reveal reveal-delay-2">
         <div class="why-icon"><i class="fas fa-shield-heart" aria-hidden="true"></i></div>
         <h3>Confianza y seguridad</h3>
-        <p>Materiales seleccionados, higiene rigurosa y procesos consistentes para que vengas tranquila.</p>
+        <p>Materiales seleccionados, higiene rigurosa y procesos consistentes para que te entregues a la experiencia con total tranquilidad.</p>
       </article>
       <article class="why-card reveal reveal-delay-3">
         <div class="why-icon"><i class="fas fa-camera-retro" aria-hidden="true"></i></div>
         <h3>Resultados que se notan</h3>
-        <p>Looks pulidos, elegantes y listos para verse increíbles en persona y en cámara.</p>
+        <p>Looks pulidos, elegantes y memorables que se ven hermosos en persona, en cámara y en cada detalle cercano.</p>
       </article>
     </div>
 
     <div class="why-stats reveal reveal-delay-3">
       <div class="why-stat">
         <strong>+5K</strong>
-        <span>clientas atendidas</span>
+        <span>clientas que ya confiaron su imagen a nuestro equipo</span>
       </div>
       <div class="why-stat">
         <strong>4</strong>
-        <span>especialidades en un solo lugar</span>
+        <span>especialidades conectadas para una belleza más armónica</span>
       </div>
       <div class="why-stat">
-        <strong>Top</strong>
-        <span>opción para citas especiales y rutina semanal</span>
+        <strong>Elite</strong>
+        <span>opción ideal para eventos, rutina semanal y momentos que merecen verse inolvidables</span>
       </div>
     </div>
   </section>
@@ -406,12 +447,16 @@
   <section id="nosotros">
     <div class="about-img-wrap reveal">
       <div class="about-img-placeholder">
-        <img src="IMG_STUDIO_INTERIOR.jpg" alt="Interior Visage Studio" class="about-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+        <img src="IMG_GALERIA_2.jpg" alt="Resultado de cabello en Visage Studio" class="about-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
       </div>
       <div class="about-img-accent" aria-hidden="true"></div>
       <div class="about-stat-box">
         <div class="about-stat-num">+5K</div>
         <div class="about-stat-label">Clientes felices</div>
+      </div>
+      <div class="about-floating-card">
+        <span>Editorial beauty</span>
+        <strong>Looks que se sienten finos, actuales y fotogénicos.</strong>
       </div>
     </div>
 
@@ -419,35 +464,35 @@
       <div class="section-label reveal">Sobre Nosotros</div>
       <h2 class="section-title reveal reveal-delay-1">
         Más que un salón,
-        una <em>firma de estilo</em>
+        una <em>firma de belleza con identidad</em>
       </h2>
       <p class="reveal reveal-delay-2">
-        En Visage Studio llevamos la belleza a un nivel más alto con un enfoque donde técnica, asesoría y experiencia conviven en armonía.
+        Visage Studio nació para mujeres que no buscan un servicio cualquiera, sino un lugar donde su imagen sea tratada con sensibilidad, técnica y gusto impecable.
       </p>
       <p class="reveal reveal-delay-3">
-        Combinamos estética contemporánea, atención cercana y criterios profesionales para que cada visita se sienta impecable de principio a fin.
+        Combinamos estética contemporánea, atención cálida y criterio profesional para que cada visita se sienta íntima, personalizada y absolutamente memorable.
       </p>
 
       <div class="about-features">
         <div class="about-feature reveal reveal-delay-1">
           <div class="about-feature-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
           <div class="about-feature-name">Equipo Certificado</div>
-          <div class="about-feature-desc">Profesionales en formación continua y ejecución precisa.</div>
+          <div class="about-feature-desc">Profesionales que perfeccionan su técnica para ofrecerte un resultado pulido y seguro.</div>
         </div>
         <div class="about-feature reveal reveal-delay-2">
           <div class="about-feature-icon"><i class="fas fa-flask-vial" aria-hidden="true"></i></div>
           <div class="about-feature-name">Productos Premium</div>
-          <div class="about-feature-desc">Fórmulas y herramientas elegidas por desempeño y acabado.</div>
+          <div class="about-feature-desc">Fórmulas y herramientas seleccionadas por su desempeño, sensorialidad y acabado superior.</div>
         </div>
         <div class="about-feature reveal reveal-delay-3">
           <div class="about-feature-icon"><i class="fas fa-spa" aria-hidden="true"></i></div>
           <div class="about-feature-name">Ambiente Exclusivo</div>
-          <div class="about-feature-desc">Un espacio sereno, visualmente cuidado y cómodo para ti.</div>
+          <div class="about-feature-desc">Un espacio sereno, visualmente cuidado y pensado para que desconectes mientras te transformas.</div>
         </div>
         <div class="about-feature reveal reveal-delay-4">
           <div class="about-feature-icon"><i class="fas fa-diamond" aria-hidden="true"></i></div>
           <div class="about-feature-name">Resultados Únicos</div>
-          <div class="about-feature-desc">Soluciones adaptadas a tu rutina, estilo y ocasión.</div>
+          <div class="about-feature-desc">Soluciones diseñadas según tu rutina, tu estilo y la imagen que deseas proyectar.</div>
         </div>
       </div>
 
@@ -462,8 +507,8 @@
     <div class="testimonios-header">
       <div class="section-label reveal">Testimonios</div>
       <h2 class="section-title reveal reveal-delay-1">
-        Reseñas que transmiten
-        <em>confianza real</em>
+        Historias que convierten una cita
+        <em>en una recomendación inmediata</em>
       </h2>
     </div>
 
@@ -477,7 +522,7 @@
           </div>
         </div>
         <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-        <p class="testimonial-text">El servicio de cabello fue impecable. Se siente nivel internacional, desde cómo te asesoran hasta cómo sales del salón.</p>
+        <p class="testimonial-text">“El mejor servicio de cabello que he recibido. Te escuchan, te asesoran con honestidad y el resultado se ve fino, elegante y carísimo.”</p>
         <div class="testimonial-proof">Cabello · Color · Tratamiento</div>
       </article>
 
@@ -490,7 +535,7 @@
           </div>
         </div>
         <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-        <p class="testimonial-text">Me hice pestañas y uñas el mismo día y todo quedó pulido, elegante y duradero. El estudio se siente premium de verdad.</p>
+        <p class="testimonial-text">“Me hice uñas y pestañas y salí sintiéndome otra mujer. Todo se ve delicado, limpio y súper bien ejecutado.”</p>
         <div class="testimonial-proof">Pestañas · Uñas</div>
       </article>
 
@@ -503,9 +548,14 @@
           </div>
         </div>
         <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-        <p class="testimonial-text">El maquillaje para mi evento quedó exactamente como lo imaginaba. Se nota el detalle, el gusto y la experiencia del equipo.</p>
+        <p class="testimonial-text">“Para mi evento quería verme sofisticada, no exagerada, y lo lograron perfecto. Todo el mundo me preguntó dónde me preparé.”</p>
         <div class="testimonial-proof">Maquillaje social</div>
       </article>
+    </div>
+
+    <div class="section-inline-cta reveal reveal-delay-2">
+      <p>Las clientas vuelven por el resultado, pero recomiendan la experiencia completa.</p>
+      <a href="#reservas" class="btn-outline">Agenda tu cita hoy</a>
     </div>
   </section>
 
@@ -513,17 +563,17 @@
     <div class="booking-copy">
       <div class="section-label reveal">Reservas</div>
       <h2 class="section-title reveal reveal-delay-1">
-        Reservar debería sentirse
-        <em>tan simple como elegante</em>
+        Reservar tu cita debería sentirse
+        <em>tan simple como exclusivo</em>
       </h2>
       <p class="reveal reveal-delay-2">
-        Completa tus datos y abrimos el chat de WhatsApp con tu solicitud lista para enviar. Rápido, claro y sin fricción.
+        Completa tus datos y abrimos tu solicitud en WhatsApp para que agendes con rapidez, claridad y una atención personalizada desde el primer mensaje.
       </p>
 
       <div class="booking-benefits reveal reveal-delay-3">
-        <div><i class="fas fa-check" aria-hidden="true"></i> Confirmación directa por WhatsApp</div>
-        <div><i class="fas fa-check" aria-hidden="true"></i> Ideal para citas rápidas o eventos especiales</div>
-        <div><i class="fas fa-check" aria-hidden="true"></i> Atención personalizada desde el primer contacto</div>
+        <div><i class="fas fa-check" aria-hidden="true"></i> Confirmación directa por WhatsApp, sin formularios fríos ni pasos innecesarios</div>
+        <div><i class="fas fa-check" aria-hidden="true"></i> Ideal para citas de rutina, eventos especiales o cambios de imagen importantes</div>
+        <div><i class="fas fa-check" aria-hidden="true"></i> Atención personalizada desde el primer contacto hasta el día de tu visita</div>
       </div>
     </div>
 
@@ -531,7 +581,7 @@
       <div class="form-intro">
         <span class="form-chip">Respuesta rápida</span>
         <h3>Solicita tu cita ahora</h3>
-        <p>Déjanos tu información y te guiamos al horario más conveniente.</p>
+        <p>Te ayudamos a encontrar el horario ideal para vivir una experiencia cuidada, cómoda y totalmente a tu medida.</p>
       </div>
 
       <label class="form-field">
@@ -568,13 +618,13 @@
     <div class="cta-bg-text" aria-hidden="true">Visage</div>
     <p class="cta-label reveal">Visage Studio · Santiago RD</p>
     <h2 class="cta-title reveal reveal-delay-1">
-      Haz tu próxima cita en un lugar
-      <em>que sí se ve a tu nivel</em>
+      Regálate una cita en un lugar
+      <em>que honra tu imagen</em>
     </h2>
-    <p class="cta-sub reveal reveal-delay-2">Agenda hoy y convierte tu próxima visita al salón en una experiencia que realmente quieras repetir.</p>
+    <p class="cta-sub reveal reveal-delay-2">Agenda hoy y convierte tu próxima visita en una experiencia de belleza que se sienta íntima, elevada y digna de repetir.</p>
     <a href="#reservas" class="btn-primary reveal reveal-delay-3">
       <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-      Agendar ahora
+      Reserva ahora
     </a>
   </section>
 
@@ -582,11 +632,11 @@
     <div class="contact-info">
       <div class="section-label reveal">Encuéntranos</div>
       <h2 class="section-title reveal reveal-delay-1">
-        Visítanos en
-        <em>Santiago</em>
+        Encuentra tu próximo
+        <em>ritual de belleza en Santiago</em>
       </h2>
       <p class="reveal reveal-delay-2">
-        Estamos listas para recibirte con atención cálida, asesoría honesta y un servicio de alto nivel.
+        Estamos listas para recibirte con una atención cálida, honesta y elegante, en un espacio pensado para que te sientas bien incluso antes de empezar.
       </p>
 
       <div class="contact-items">
@@ -611,7 +661,7 @@
           <div>
             <div class="contact-item-label">Instagram</div>
             <a href="https://instagram.com/visagestudiord" class="contact-item-value" target="_blank" rel="noopener">@visagestudiord</a>
-            <div class="contact-item-sub">Mira nuestros trabajos más recientes</div>
+            <div class="contact-item-sub">Mira close-ups, resultados, clientas felices y detalles reales del estudio</div>
           </div>
         </div>
         <div class="contact-item reveal reveal-delay-4">
@@ -642,6 +692,7 @@
       <div class="footer-brand">
         <a href="#" class="footer-logo">V<span>isage</span> Studio</a>
         <p>Experiencias de belleza de lujo en Santiago, República Dominicana. Un salón pensado para mujeres que valoran imagen, detalle y calidad.</p>
+        <p class="footer-brand-note">Belleza con intención, lujo con sensibilidad y resultados que elevan tu presencia.</p>
         <div class="social-links">
           <a href="https://instagram.com/visagestudiord" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://wa.me/18095835757" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -674,7 +725,7 @@
 
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 <span>Visage Studio</span> · Todos los derechos reservados · Santiago, RD</p>
-      <p class="footer-tagline">Donde tu belleza se convierte en arte</p>
+      <p class="footer-tagline">Donde tu esencia se convierte en presencia</p>
     </div>
   </footer>
 

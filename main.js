@@ -3,13 +3,6 @@
    Interacciones premium, navegación dinámica y reservas por WhatsApp
    ============================================================ */
 
-/* ── LOADER ─────────────────────────────────────────────────── */
-window.addEventListener("load", () => {
-  window.setTimeout(() => {
-    document.getElementById("loader")?.classList.add("hidden");
-  }, 1800);
-});
-
 /* ── NAVBAR / ACTIVE LINKS ─────────────────────────────────── */
 const navbar = document.getElementById("navbar");
 const navLinks = document.querySelectorAll(".nav-links a");
@@ -62,6 +55,12 @@ mobileMenu?.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
 /* ── SCROLL REVEAL ─────────────────────────────────────────── */
 const reveals = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver((entries) => {
@@ -93,8 +92,8 @@ if (heroVideo) {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobileLikeScreen = window.matchMedia("(max-width: 820px)").matches;
   const saveData = navigator.connection?.saveData;
-  const supportsWebm = heroVideo.canPlayType("video/webm") !== "";
-  const shouldSkipVideo = prefersReducedMotion || saveData || isMobileLikeScreen || !supportsWebm;
+  const supportsMp4 = heroVideo.canPlayType("video/mp4") !== "";
+  const shouldSkipVideo = prefersReducedMotion || saveData || isMobileLikeScreen || !supportsMp4;
 
   if (shouldSkipVideo) {
     heroBg?.classList.add("poster-only");
