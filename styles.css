@@ -455,7 +455,7 @@ footer {
 .hero-bg.poster-only {
   background-image: url("IMG_GALERIA_4.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 28%;
 }
 
 .hero-bg.poster-only .hero-video {
@@ -475,6 +475,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 28%;
   filter: saturate(1.12) contrast(1.08) brightness(.58);
   transform: scale(1.06);
 }
@@ -2587,6 +2588,15 @@ footer {
     align-items: end;
   }
 
+  .hero-bg.poster-only {
+    background-position: 58% 24%;
+  }
+
+  .hero-video {
+    object-position: 58% 24%;
+    transform: scale(1.12);
+  }
+
   .hero-content {
     align-items: end;
   }
@@ -2911,6 +2921,15 @@ footer {
 
   #hero {
     padding: 6.4rem 0 2.6rem;
+  }
+
+  .hero-bg.poster-only {
+    background-position: 60% 22%;
+  }
+
+  .hero-video {
+    object-position: 60% 22%;
+    transform: scale(1.15);
   }
 
   .hero-title {

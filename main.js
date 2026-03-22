@@ -90,10 +90,9 @@ const heroVideo = document.getElementById("heroVideo");
 
 if (heroVideo) {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isMobileLikeScreen = window.matchMedia("(max-width: 820px)").matches;
   const saveData = navigator.connection?.saveData;
   const supportsMp4 = heroVideo.canPlayType("video/mp4") !== "";
-  const shouldSkipVideo = prefersReducedMotion || saveData || isMobileLikeScreen || !supportsMp4;
+  const shouldSkipVideo = prefersReducedMotion || saveData || !supportsMp4;
 
   if (shouldSkipVideo) {
     heroBg?.classList.add("poster-only");
@@ -116,16 +115,9 @@ if (heroVideo) {
   };
 
   if (!shouldSkipVideo) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          loadHeroVideo();
-          videoObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-
-    videoObserver.observe(heroVideo);
+    // The hero is visible on first paint, so we can load immediately across devices
+    // while still respecting reduced-motion and data-saver preferences.
+    loadHeroVideo();
   }
 }
 
