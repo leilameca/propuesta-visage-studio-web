@@ -91,10 +91,10 @@ const heroVideo = document.getElementById("heroVideo");
 
 if (heroVideo) {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isSmallScreen = window.matchMedia("(max-width: 640px)").matches;
+  const isMobileLikeScreen = window.matchMedia("(max-width: 820px)").matches;
   const saveData = navigator.connection?.saveData;
   const supportsWebm = heroVideo.canPlayType("video/webm") !== "";
-  const shouldSkipVideo = prefersReducedMotion || saveData || isSmallScreen || !supportsWebm;
+  const shouldSkipVideo = prefersReducedMotion || saveData || isMobileLikeScreen || !supportsWebm;
 
   if (shouldSkipVideo) {
     heroBg?.classList.add("poster-only");
