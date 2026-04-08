@@ -16,22 +16,24 @@
 </head>
 <body>
   <nav id="navbar">
-    <a href="#" class="nav-logo">V<span>isage</span> Studio</a>
+    <div class="nav-shell">
+      <a href="#" class="nav-logo">V<span>isage</span> Studio</a>
 
-    <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#antes-despues">Resultados</a></li>
-      <li><a href="#por-que-elegirnos">Por qué elegirnos</a></li>
-      <li><a href="#testimonios">Clientes</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#antes-despues">Resultados</a></li>
+        <li><a href="#por-que-elegirnos">Por que elegirnos</a></li>
+        <li><a href="#testimonios">Clientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
 
-    <a href="#reservas" class="nav-cta">Reservar Cita</a>
+      <a href="#reservas" class="nav-cta">Reservar Cita</a>
 
-    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -171,7 +173,7 @@
     </div>
 
     <div class="services-grid">
-      <article class="service-card reveal">
+      <article class="service-card reveal" data-service="cabello">
         <div class="service-card-bg">
           <img src="IMG_SERVICIO_CABELLO.jpg" alt="Servicio de Cabello" class="service-card-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </div>
@@ -182,10 +184,11 @@
           <div class="service-card-number">01</div>
           <div class="service-card-name">Cabello</div>
           <div class="service-card-desc">Más que un cambio de look: una asesoría precisa para devolverle movimiento, luz y elegancia a tu imagen.</div>
+          <button class="service-card-action" type="button">Ver mas</button>
         </div>
       </article>
 
-      <article class="service-card reveal reveal-delay-1">
+      <article class="service-card reveal reveal-delay-1" data-service="unas">
         <div class="service-card-bg">
           <img src="IMG_SERVICIO_UNAS.jpg" alt="Servicio de Uñas" class="service-card-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </div>
@@ -196,10 +199,11 @@
           <div class="service-card-number">02</div>
           <div class="service-card-name">Uñas</div>
           <div class="service-card-desc">No es solo manicure. Es ese detalle impecable que hace que todo tu estilo se vea más pulido y sofisticado.</div>
+          <button class="service-card-action" type="button">Ver mas</button>
         </div>
       </article>
 
-      <article class="service-card reveal reveal-delay-2">
+      <article class="service-card reveal reveal-delay-2" data-service="maquillaje">
         <div class="service-card-bg">
           <img src="IMG_SERVICIO_MAKEUP.jpg" alt="Servicio de Maquillaje" class="service-card-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </div>
@@ -210,10 +214,11 @@
           <div class="service-card-number">03</div>
           <div class="service-card-name">Maquillaje</div>
           <div class="service-card-desc">Creamos un maquillaje que no disfraza tu esencia: la eleva con luz, equilibrio y una presencia inolvidable.</div>
+          <button class="service-card-action" type="button">Ver mas</button>
         </div>
       </article>
 
-      <article class="service-card reveal reveal-delay-3">
+      <article class="service-card reveal reveal-delay-3" data-service="pestanas">
         <div class="service-card-bg">
           <img src="IMG_SERVICIO_PESTANAS.jpg" alt="Servicio de Pestañas" class="service-card-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </div>
@@ -224,6 +229,7 @@
           <div class="service-card-number">04</div>
           <div class="service-card-name">Pestañas</div>
           <div class="service-card-desc">Diseñamos tu mirada para que se vea más expresiva, elegante y naturalmente impactante sin perder comodidad.</div>
+          <button class="service-card-action" type="button">Ver mas</button>
         </div>
       </article>
     </div>
@@ -255,32 +261,32 @@
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item reveal" data-label="Cabello Lacio">
+      <div class="gallery-item reveal" data-label="Cabello Lacio" role="button" tabindex="0">
         <img src="IMG_GALERIA_1.jpg" alt="Cabello lacio" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Cabello Lacio</div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-label="Balayage">
+      <div class="gallery-item reveal reveal-delay-1" data-label="Balayage" role="button" tabindex="0">
         <img src="IMG_GALERIA_2.jpg" alt="Balayage" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Balayage</div>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" data-label="Uñas Signature">
+      <div class="gallery-item reveal reveal-delay-2" data-label="Uñas Signature" role="button" tabindex="0">
         <img src="IMG_GALERIA_3.jpg" alt="Uñas signature" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Uñas Signature</div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-label="Maquillaje Glow">
+      <div class="gallery-item reveal reveal-delay-1" data-label="Maquillaje Glow" role="button" tabindex="0">
         <img src="IMG_GALERIA_4.jpg" alt="Maquillaje glow" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Maquillaje Glow</div>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" data-label="Rizos Naturales">
+      <div class="gallery-item reveal reveal-delay-2" data-label="Rizos Naturales" role="button" tabindex="0">
         <img src="IMG_GALERIA_5.jpg" alt="Rizos naturales" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Rizos Naturales</div>
       </div>
-      <div class="gallery-item reveal reveal-delay-3" data-label="Corte Bob">
+      <div class="gallery-item reveal reveal-delay-3" data-label="Corte Bob" role="button" tabindex="0">
         <img src="IMG_GALERIA_6.jpg" alt="Corte bob" class="gallery-img" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <div class="gallery-overlay"><div class="gallery-zoom"><i class="fas fa-plus"></i></div></div>
         <div class="gallery-label">Corte Bob</div>
@@ -319,9 +325,39 @@
     </div>
   </section>
 
-  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <div id="serviceModal" class="service-modal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle" aria-hidden="true">
+    <div class="service-modal-panel">
+      <button class="service-modal-close" id="serviceModalClose" aria-label="Cerrar detalle del servicio"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+      <div class="service-modal-media">
+        <img id="serviceModalImage" src="IMG_SERVICIO_CABELLO.jpg" alt="" loading="lazy" decoding="async" />
+        <div class="service-modal-thumbs" id="serviceModalThumbs"></div>
+      </div>
+      <div class="service-modal-copy">
+        <div class="service-modal-kicker" id="serviceModalKicker">Servicio</div>
+        <h3 id="serviceModalTitle">Cabello</h3>
+        <p id="serviceModalDescription"></p>
+        <div class="service-modal-points" id="serviceModalPoints"></div>
+        <div class="service-modal-footer">
+          <a href="#reservas" class="btn-primary service-modal-cta">Agendar este servicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar"><i class="fas fa-xmark" aria-hidden="true"></i></button>
-    <div class="lightbox-content" id="lightboxContent"></div>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Imagen anterior"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="lightbox-panel">
+      <div class="lightbox-head">
+        <div>
+          <div class="lightbox-kicker">Galeria</div>
+          <h3 id="lightboxTitle">Cabello Lacio</h3>
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 5</div>
+      </div>
+      <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Siguiente imagen"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
   </div>
 
   <section id="antes-despues">
