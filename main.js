@@ -34,7 +34,7 @@ const serviceDetails = {
   cabello: {
     kicker: "Diseno capilar",
     title: "Cabello",
-    image: "IMG_SERVICIO_CABELLO.jpg",
+    image: "assets/images/services/IMG_SERVICIO_CABELLO.jpg",
     description:
       "Cortes, color y styling trabajados con criterio para que el resultado se vea elegante en el salon, en la calle y en fotos.",
     points: [
@@ -46,7 +46,7 @@ const serviceDetails = {
   unas: {
     kicker: "Manos impecables",
     title: "Unas",
-    image: "IMG_SERVICIO_UNAS.jpg",
+    image: "assets/images/services/IMG_SERVICIO_UNAS.jpg",
     description:
       "Una propuesta de manicure con forma, color y terminacion limpia para que tus manos se vean sofisticadas sin exceso.",
     points: [
@@ -58,7 +58,7 @@ const serviceDetails = {
   maquillaje: {
     kicker: "Luz y balance",
     title: "Maquillaje",
-    image: "IMG_SERVICIO_MAKEUP.jpg",
+    image: "assets/images/services/IMG_SERVICIO_MAKEUP.jpg",
     description:
       "Maquillaje social o editorial con tecnica de piel, estructura y luz para resaltar tu rostro sin disfrazarlo.",
     points: [
@@ -70,13 +70,25 @@ const serviceDetails = {
   pestanas: {
     kicker: "Mirada definida",
     title: "Pestanas",
-    image: "IMG_SERVICIO_PESTANAS.jpg",
+    image: "assets/images/services/IMG_SERVICIO_PESTANAS.jpg",
     description:
       "Disenamos la mirada con un resultado armonico, comodo y proporcionado para que se vea expresiva y limpia.",
     points: [
       "Mapeo segun forma del ojo y efecto que te favorece.",
       "Aplicacion orientada a comodidad y caida visual elegante.",
       "Mantenimiento pensado para que el look siga viendose fino.",
+    ],
+  },
+  masajes: {
+    kicker: "Bienestar y pausa",
+    title: "Masajes",
+    image: "assets/images/studio/IMG_STUDIO_INTERIOR.jpg",
+    description:
+      "Masajes relajantes pensados para liberar tension y convertir tu cita en una experiencia todavia mas completa y reconfortante.",
+    points: [
+      "Ideal para complementar servicios de belleza con un momento real de descanso.",
+      "Enfoque en relajacion de espalda, pies o zonas de mayor tension.",
+      "Imagen temporal del servicio para que luego la reemplaces por la correcta.",
     ],
   },
 };

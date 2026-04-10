@@ -40,6 +40,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -53,14 +54,56 @@ body {
 }
 
 img,
-video {
+video,
+iframe {
   max-width: 100%;
+  display: block;
 }
 
 button,
 input,
 select {
   font: inherit;
+}
+
+.hero-content > *,
+.hero-highlights > *,
+.editorial-band > *,
+.editorial-story > *,
+.services-header > *,
+.services-grid > *,
+.gallery-header > *,
+.why-header > *,
+.why-grid > *,
+.why-stats > *,
+#antes-despues > *,
+#reservas > *,
+#contacto > *,
+#nosotros > *,
+.about-features > *,
+.testimonios-grid > *,
+.footer-top > * {
+  min-width: 0;
+}
+
+.hero-title,
+.section-title,
+.cta-title,
+.why-featured h3,
+.service-modal-copy h3,
+.lightbox-head h3 {
+  text-wrap: balance;
+}
+
+.hero-subtitle,
+.editorial-band-copy p,
+.editorial-story-copy p,
+.testimonial-text,
+.contact-item-sub,
+.footer-brand p,
+.footer-brand-note,
+.cta-sub {
+  text-wrap: pretty;
 }
 
 a {
@@ -466,7 +509,7 @@ footer {
 }
 
 .hero-bg.poster-only {
-  background-image: url("IMG_GALERIA_4.jpg");
+  background-image: url("assets/images/gallery/IMG_GALERIA_4.jpg");
   background-size: cover;
   background-position: center 28%;
 }
@@ -1003,7 +1046,7 @@ footer {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.2rem;
 }
 
@@ -2322,9 +2365,20 @@ footer {
 }
 
 .testimonial-role {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
   margin-top: .25rem;
   font-size: .75rem;
   color: var(--text-soft);
+  text-decoration: none;
+  transition: color .25s var(--ease), opacity .25s var(--ease);
+}
+
+.testimonial-role:hover,
+.testimonial-role:focus-visible {
+  color: var(--gold-deep);
+  opacity: .9;
 }
 
 .testimonial-stars {
@@ -2351,6 +2405,9 @@ footer {
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--gold-deep);
+  max-width: 100%;
+  line-height: 1.5;
+  text-align: center;
 }
 
 #reservas {
@@ -2747,8 +2804,8 @@ footer {
 
 .whatsapp-float {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
   z-index: 500;
   text-decoration: none;
 }
@@ -2912,6 +2969,12 @@ footer {
     align-items: end;
   }
 
+  .hero-topline {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
   .hero-bg.poster-only {
     background-position: 58% 24%;
   }
@@ -2932,6 +2995,7 @@ footer {
 
   .hero-score {
     margin-left: 0;
+    max-width: 100%;
   }
 
   .hero-highlights {
@@ -2971,7 +3035,7 @@ footer {
   .about-features,
   .testimonios-grid,
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-modal-panel {
@@ -2995,12 +3059,12 @@ footer {
 
   .editorial-band-main,
   .editorial-story-frame-large {
-    min-height: 440px;
+    min-height: clamp(340px, 60vw, 440px);
   }
 
   .editorial-band-side,
   .editorial-story-frame-small {
-    min-height: 260px;
+    min-height: clamp(220px, 42vw, 260px);
     transform: none;
   }
 
@@ -3021,6 +3085,11 @@ footer {
 
   .before-after-frame {
     min-height: 520px;
+  }
+
+  .after-badge,
+  .before-badge {
+    letter-spacing: .18em;
   }
 
   .footer-top {
@@ -3065,6 +3134,10 @@ footer {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 10px;
+    font-size: .68rem;
+    letter-spacing: .14em;
   }
 
   .hero-content {
@@ -3081,6 +3154,16 @@ footer {
     line-height: .98;
   }
 
+  .hero-tag {
+    gap: 10px;
+    font-size: .62rem;
+    letter-spacing: .22em;
+  }
+
+  .hero-tag::before {
+    width: 22px;
+  }
+
   .hero-subtitle {
     max-width: none;
     font-size: .98rem;
@@ -3090,6 +3173,10 @@ footer {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero-scroll {
+    display: none;
   }
 
   .editorial-band,
@@ -3125,12 +3212,39 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .services-grid,
+  .testimonios-grid,
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-item {
     aspect-ratio: 4 / 4.6;
   }
 
   .before-after-frame {
     min-height: 420px;
+  }
+
+  .before-badge,
+  .after-badge {
+    top: 1rem;
+    padding: 8px 12px;
+    font-size: .62rem;
+    letter-spacing: .16em;
+  }
+
+  .before-badge {
+    left: 1rem;
+  }
+
+  .after-badge {
+    right: 1rem;
+  }
+
+  .before-after-handle {
+    width: 58px;
+    height: 58px;
   }
 
   .before-after-points,
@@ -3145,6 +3259,10 @@ footer {
 
   .section-inline-cta {
     align-items: stretch;
+  }
+
+  .section-inline-cta p {
+    max-width: none;
   }
 
   .section-inline-cta .btn-outline {
@@ -3213,6 +3331,16 @@ footer {
     margin-top: 1rem;
   }
 
+  .about-stat-box {
+    left: 1rem;
+    bottom: 1rem;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .about-stat-num {
+    font-size: 2.7rem;
+  }
+
   .footer-brand {
     grid-column: auto;
   }
@@ -3249,6 +3377,10 @@ footer {
     gap: 1rem;
     padding: 1rem;
     border-radius: 24px;
+  }
+
+  .service-modal-media > img {
+    aspect-ratio: 4 / 4.9;
   }
 
   .service-modal-copy h3,
@@ -3310,6 +3442,11 @@ footer {
     height: 56px;
   }
 
+  .whatsapp-float {
+    right: max(.85rem, env(safe-area-inset-right));
+    bottom: max(.85rem, env(safe-area-inset-bottom));
+  }
+
   .whatsapp-tooltip {
     display: none;
   }
@@ -3349,8 +3486,7 @@ footer {
   }
 
   .hero-scroll {
-    bottom: 1.2rem;
-    font-size: .66rem;
+    display: none;
   }
 
   .service-modal-panel {

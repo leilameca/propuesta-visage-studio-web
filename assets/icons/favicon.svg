@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6efe7" />
+      <stop offset="100%" stop-color="#d9c0a7" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6f4b3e" />
+      <stop offset="100%" stop-color="#3f251d" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)" />
+  <text
+    x="32"
+    y="41"
+    text-anchor="middle"
+    font-size="28"
+    font-family="'Cormorant Garamond', 'Times New Roman', serif"
+    font-style="italic"
+    font-weight="600"
+    letter-spacing="1.5"
+    fill="url(#ink)"
+  >VS</text>
+</svg>
