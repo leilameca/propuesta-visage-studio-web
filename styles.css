@@ -3516,3 +3516,415 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   2026 ENHANCEMENTS — Visage Studio
+   Mobile-first upgrades, scroll behaviors, new animations
+   ============================================================ */
+
+/* --- Scroll progress bar --- */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold-deep));
+  z-index: 2001;
+  pointer-events: none;
+  transition: width .08s linear;
+}
+
+/* --- Navbar hide on scroll-down, show on scroll-up --- */
+nav {
+  transform: translateY(0);
+  transition: transform .45s var(--ease), background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+
+nav.nav-hidden {
+  transform: translateY(-110%);
+}
+
+/* --- WhatsApp float: starts hidden, slides in --- */
+.whatsapp-float {
+  opacity: 0;
+  transform: translateY(18px) scale(.9);
+  pointer-events: none;
+  transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+
+.whatsapp-float.wa-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Second ripple ring */
+.whatsapp-btn::after {
+  content: "";
+  position: absolute;
+  inset: -13px;
+  border-radius: 50%;
+  border: 1px solid rgba(32, 213, 92, 0.18);
+  animation: waPulse 2.6s ease 1.4s infinite;
+}
+
+/* --- Ken Burns on editorial images --- */
+@keyframes kenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.06) translate(-1%, -.5%); }
+}
+
+@keyframes kenBurnsAlt {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.06) translate(1%, .5%); }
+}
+
+.editorial-band-main img {
+  animation: kenBurns 9s ease-in-out infinite alternate;
+}
+
+.editorial-band-side img {
+  animation: kenBurnsAlt 11s ease-in-out infinite alternate;
+}
+
+.editorial-story-frame-large img {
+  animation: kenBurns 10s ease-in-out infinite alternate;
+}
+
+/* --- Before/after auto-demo animation --- */
+@keyframes beforeAfterIntro {
+  0%   { width: 50%; }
+  25%  { width: 28%; }
+  60%  { width: 72%; }
+  100% { width: 50%; }
+}
+
+.before-layer.ba-demo {
+  animation: beforeAfterIntro 2.4s var(--ease) forwards;
+}
+
+@keyframes dividerIntro {
+  0%   { left: 50%; }
+  25%  { left: 28%; }
+  60%  { left: 72%; }
+  100% { left: 50%; }
+}
+
+.before-after-divider.ba-demo {
+  animation: dividerIntro 2.4s var(--ease) forwards;
+}
+
+/* --- Before/after handle redesign --- */
+.before-after-handle {
+  width: 52px;
+  height: 52px;
+  background: var(--white);
+  color: var(--text);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22), 0 2px 6px rgba(0,0,0,.14);
+}
+
+.before-after-handle i {
+  font-size: .85rem;
+}
+
+.before-after-divider {
+  width: 2px;
+  background: var(--white);
+  box-shadow: 0 0 12px rgba(255,255,255,.4);
+}
+
+/* --- Testimonials dots --- */
+.testimonios-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.8rem;
+}
+
+.testimonios-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: background .3s var(--ease), width .3s var(--ease);
+  border: none;
+  padding: 0;
+}
+
+.testimonios-dot.active {
+  background: var(--gold-deep);
+  width: 22px;
+}
+
+/* --- Mobile services horizontal carousel --- */
+@media (max-width: 640px) {
+  .services-grid {
+    display: flex !important;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 0 5% 1.5rem;
+    margin: 0 -5%;
+  }
+
+  .services-grid::-webkit-scrollbar { display: none; }
+
+  .service-card {
+    flex: 0 0 78vw;
+    min-height: 470px;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  .service-card:hover {
+    transform: none !important;
+  }
+}
+
+/* --- Mobile gallery horizontal reel --- */
+@media (max-width: 640px) {
+  .gallery-grid {
+    display: flex !important;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    padding: 0 5% 1.2rem;
+    margin: 0 -5%;
+  }
+
+  .gallery-grid::-webkit-scrollbar { display: none; }
+
+  .gallery-item {
+    flex: 0 0 68vw;
+    min-height: 0 !important;
+    aspect-ratio: 3 / 4 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    scroll-snap-align: start;
+    border-radius: 20px;
+  }
+
+  /* Show overlay on mobile tap */
+  .gallery-item:active .gallery-overlay {
+    opacity: 1;
+  }
+}
+
+/* --- Mobile testimonials horizontal carousel --- */
+@media (max-width: 640px) {
+  .testimonios-grid {
+    display: flex !important;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 0 5% 1.2rem;
+    margin: 0 -5%;
+  }
+
+  .testimonios-grid::-webkit-scrollbar { display: none; }
+
+  .testimonial-card {
+    flex: 0 0 84vw;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  .testimonial-card:hover {
+    transform: none !important;
+  }
+}
+
+/* --- Mobile full-screen menu link stagger --- */
+.mobile-menu-links a {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+}
+
+.mobile-menu.open .mobile-menu-links a:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s; }
+.mobile-menu.open .mobile-menu-links a:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .14s; }
+.mobile-menu.open .mobile-menu-links a:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .20s; }
+.mobile-menu.open .mobile-menu-links a:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .26s; }
+.mobile-menu.open .mobile-menu-links a:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .32s; }
+.mobile-menu.open .mobile-menu-links a:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: .38s; }
+
+/* Reset stagger when menu closes */
+.mobile-menu:not(.open) .mobile-menu-links a {
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+
+/* --- Enhanced mobile hero --- */
+@media (max-width: 640px) {
+  .hero-highlight-card {
+    padding: 1rem 1.1rem;
+    border-radius: 20px;
+  }
+
+  .hero-highlight-card strong {
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .hero-highlights {
+    display: none;
+  }
+}
+
+/* --- Section inline CTA mobile full width --- */
+@media (max-width: 640px) {
+  .section-inline-cta {
+    flex-direction: column;
+    gap: .9rem;
+  }
+}
+
+/* --- Refined service footnote mobile --- */
+@media (max-width: 640px) {
+  .service-footnote {
+    flex-direction: column;
+    gap: .7rem;
+  }
+}
+
+/* --- Smoother gallery image hover --- */
+.gallery-img {
+  transition: transform 1.1s var(--ease), filter 1.1s var(--ease);
+}
+
+/* --- Enhanced card hover: service card magnetic placeholder --- */
+.service-card {
+  --mx: 0px;
+  --my: 0px;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+
+@media (hover: hover) {
+  .service-card:hover {
+    transform: translateY(-6px) translate(calc(var(--mx) * .4), calc(var(--my) * .4));
+  }
+}
+
+/* --- Booking section dark bg enhancement --- */
+#reservas {
+  background:
+    radial-gradient(circle at 0% 100%, rgba(201,201,201,.06), transparent 30%),
+    var(--bg);
+}
+
+/* --- Footer subtle separator line improvement --- */
+.footer-top {
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* --- Mobile contact items improvement --- */
+@media (max-width: 640px) {
+  .contact-items {
+    gap: 0;
+  }
+}
+
+/* --- Scroll-driven progress bar (native CSS where supported) ---  */
+@supports (animation-timeline: scroll()) {
+  #scroll-progress-bar {
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: scrollProgress linear;
+    animation-timeline: scroll(root block);
+    transition: none;
+  }
+
+  @keyframes scrollProgress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+}
+
+/* --- Improved mobile booking form layout --- */
+@media (max-width: 640px) {
+  #reservas {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --- Better before/after section mobile --- */
+@media (max-width: 640px) {
+  #antes-despues {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .before-after-frame {
+    min-height: 400px;
+  }
+}
+
+/* --- Improve about section mobile --- */
+@media (max-width: 640px) {
+  #nosotros {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* --- Hours strip mobile improvement --- */
+@media (max-width: 480px) {
+  .hours-badge {
+    text-align: center;
+  }
+}
+
+/* --- CTA section mobile --- */
+@media (max-width: 640px) {
+  #cta {
+    padding: 5rem 5%;
+  }
+
+  .cta-title {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+  }
+}
+
+/* --- Map mobile --- */
+@media (max-width: 640px) {
+  #contacto {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --- Mobile nav centrado con logo centrado --- */
+@media (max-width: 920px) {
+  .nav-shell {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+  }
+
+  #navbar .nav-logo {
+    grid-column: 2;
+    text-align: center;
+    justify-self: center;
+  }
+
+  .hamburger {
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
