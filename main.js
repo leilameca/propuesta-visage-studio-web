@@ -126,17 +126,6 @@ const updateNavbar = () => {
   // Scrolled state (background)
   navbar?.classList.toggle("scrolled", currentY > 24);
 
-  // Hide/show based on direction (only after 120px from top)
-  if (currentY > 120) {
-    if (delta > 4) {
-      navbar?.classList.add("nav-hidden");
-    } else if (delta < -4) {
-      navbar?.classList.remove("nav-hidden");
-    }
-  } else {
-    navbar?.classList.remove("nav-hidden");
-  }
-
   // Active link tracking
   let currentId = "";
   sections.forEach((section) => {
